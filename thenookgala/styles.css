@@ -64,30 +64,30 @@ main {
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 0;
+  gap: 2.5rem;
   margin-bottom: 3rem;
   width: 100%;
   max-width: 520px;
+  position: relative;
 }
 
 .tab {
-  flex: 1;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 0 0 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.65rem;
-  transition: opacity 0.3s ease;
+  gap: 0;
+  position: relative;
 }
 
 .tab-label {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 400;
-  font-size: 1.45rem;
-  letter-spacing: 0.05em;
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
   color: #a89c8a;
   transition: color 0.3s ease;
   white-space: nowrap;
@@ -101,19 +101,22 @@ main {
   color: #2c241c;
 }
 
-/* Thin rectangle indicator */
+/* Thin underline indicator */
 .tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: block;
-  width: 48px;
-  height: 2px;
+  width: 0;
+  height: 1.5px;
   border-radius: 1px;
-  background-color: transparent;
-  transition: background-color 0.3s ease, width 0.3s ease;
+  background-color: #2c241c;
+  transition: width 0.3s ease;
 }
 
 .tab.active .tab-indicator {
-  background-color: #2c241c;
-  width: 48px;
+  width: 100%;
 }
 
 /* ──────────────────── Tab Panels ──────────────────── */
@@ -218,39 +221,50 @@ main {
   content: '';
 }
 
+/* Header row: name + chevron inline */
+.dish-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
 .dish-name {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 500;
   font-size: 1.65rem;
   color: #2c241c;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0;
   letter-spacing: 0.02em;
+}
+
+.dish-chevron {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 1.5px solid #a89c8a;
+  border-bottom: 1.5px solid #a89c8a;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  top: -1px;
+}
+
+.dish[open] .dish-chevron {
+  transform: rotate(-135deg);
+  top: 2px;
 }
 
 .dish-sub {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 400;
   font-style: italic;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #8a7d6b;
   line-height: 1.65;
   max-width: 540px;
-  margin: 0 auto;
-}
-
-/* Expand indicator */
-.dish summary::after {
-  content: '+';
-  display: block;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.3rem;
-  color: #a89c8a;
-  margin-top: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.dish[open] summary::after {
-  content: '\2212';
+  margin: 0.35rem auto 0;
 }
 
 .dish-body {
@@ -316,21 +330,13 @@ footer {
   }
 
   .tabs {
-    gap: 0;
+    gap: 1.75rem;
     margin-bottom: 2.25rem;
     max-width: 100%;
   }
 
   .tab-label {
-    font-size: 1.15rem;
-  }
-
-  .tab-indicator {
-    width: 36px;
-  }
-
-  .tab.active .tab-indicator {
-    width: 36px;
+    font-size: 1.1rem;
   }
 
   .story-text p {
@@ -343,7 +349,7 @@ footer {
   }
 
   .dish-sub {
-    font-size: 0.93rem;
+    font-size: 0.85rem;
   }
 
   .dish-body p {
