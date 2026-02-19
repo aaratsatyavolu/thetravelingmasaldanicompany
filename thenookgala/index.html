@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Nook Gala — The Traveling Masaldani Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <a href="/">
+      <img src="../assets/logo.svg" alt="The Traveling Masaldani Company" class="header-logo">
+    </a>
+  </header>
+
+  <main>
+    <!-- Tab navigation -->
+    <nav class="tabs" role="tablist">
+      <button class="tab active" role="tab" aria-selected="true" data-tab="story" id="tab-story">Menu Development Story</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="dishes" id="tab-dishes">Dish By Dish</button>
+    </nav>
+
+    <!-- Menu Development Story -->
+    <section class="tab-content active" id="panel-story" role="tabpanel" aria-labelledby="tab-story">
+      <div class="story-text">
+        <p>
+          Once the kind people at The Nook gave me the opportunity to provide food at the gala — I was unfortunately in the midst of several severe health problems, each one more unexpected than the last. In the month since being informed about catering the gala, I have had 2 surgeries and been on medication and drugs I never even knew existed. Experiencing this for the first time in my life and losing control over acts that had previously felt simple was incredibly difficult. In between all the anesthesia, one of the main thoughts that kept me going was my simple and unadulterated love for food. Moments where I experienced new flavors, added skills to my cooking toolbox and came home to experiment, kept me afloat during the low moments. The menu you will eat tonight was borne out of those moments that shaped the beginnings of my culinary passion and sustained my strength through the past few months. Each dish is a callback to a memory that allowed me to recover and come back to the world.
+        </p>
+      </div>
+
+      <button class="next-section-arrow" aria-label="Go to Dish By Dish" id="go-to-dishes">
+        <span class="arrow-label">Dish By Dish</span>
+        <span class="arrow-icon">&#8595;</span>
+      </button>
+    </section>
+
+    <!-- Dish By Dish -->
+    <section class="tab-content" id="panel-dishes" role="tabpanel" aria-labelledby="tab-dishes">
+
+      <!-- Dish 1 -->
+      <details class="dish">
+        <summary>
+          <h2 class="dish-name">Chaat Cup</h2>
+          <p class="dish-sub">fenugreek and carom seed spiced cups, masala pomme puree, date tamarind chutney, cilantro mint chutney, dahi espuma, pomegranate, chaat masala</p>
+        </summary>
+        <div class="dish-body">
+          <p>
+            During summers growing up, my family and I would always go to Agra and live there for a few months. My mom and sister would whip me around from street to street to try the food from their favorite vendors growing up. One dish, that usually came in a dried banana leaf bowl, was a classic chaat. Crunchy, creamy and perfectly spiced, it was the perfect dish to laugh over and cool down in the makeshift umbrella near the food carts. The dish you will eat today is made with a 'mathri' cup or a cracker that is commonly made as a snack, along with the classic elements of a chaat. It always brings me back to eating delectable things on the streets of Agra.
+          </p>
+        </div>
+      </details>
+
+      <!-- Dish 2 -->
+      <details class="dish">
+        <summary>
+          <h2 class="dish-name">Khao Soi Focaccia</h2>
+          <p class="dish-sub">whipped khao soi cream cheese, chili oil, garlic focaccia, green onions</p>
+        </summary>
+        <div class="dish-body">
+          <p>
+            One of my favorite trips was my month long stay in Chiang Mai, Thailand. While there, I attended a cooking class at a local farm hosted by its owner. We picked ingredients fresh and cooked them all the same day to eat. It felt like a true celebration of Thai cuisine and its roots — learning about how the food came from the land and all the local techniques was very transformative. The dish you will eat today is a nod to one of Northern Thailand's most famous dishes — Khao Soi. Transformed into a simple bread and cheese format, I hope to still capture the flavors from the farm that day.
+          </p>
+        </div>
+      </details>
+
+      <!-- Dish 3 -->
+      <details class="dish">
+        <summary>
+          <h2 class="dish-name">Mango Vanilla Tartlet</h2>
+          <p class="dish-sub">vanilla bean cream, mango mousse, caramelized biscuit crust, rose petals</p>
+        </summary>
+        <div class="dish-body">
+          <p>
+            I've had a sweet tooth for as long as I can remember, but the fruit that I always come back to is Mango. Whether I was in Thailand or India, I would always seek out the local Mango vendor. In my time working as a pastry chef, I started to appreciate pastries that would subtly incorporate flavors of fruit, so this dish brings together some of that along with a homage to my mom who would always have some fresh cut mango when I would come back home from school.
+          </p>
+        </div>
+      </details>
+
+      <div class="closing-note">
+        <p>
+          The menu today is a simple celebration of the foods and flavors that have been added to my 'Masaldani' or spice box over the years. I hope you enjoy them as much as I have!
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="../assets/logo.svg" alt="The Traveling Masaldani Company" class="footer-logo">
+  </footer>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.tab-content');
+
+    function switchTab(tabId) {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach(p => p.classList.remove('active'));
+
+      const activeTab = document.querySelector(`[data-tab="${tabId}"]`);
+      const activePanel = document.getElementById(`panel-${tabId}`);
+      activeTab.classList.add('active');
+      activeTab.setAttribute('aria-selected', 'true');
+      activePanel.classList.add('active');
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+    });
+
+    // Arrow button to switch to Dish By Dish
+    document.getElementById('go-to-dishes').addEventListener('click', () => {
+      switchTab('dishes');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
