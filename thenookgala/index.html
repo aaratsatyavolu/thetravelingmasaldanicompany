@@ -4,36 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Nook Gala — The Traveling Masaldani Company</title>
+  <meta name="description" content="The Nook Gala menu — a journey through memory and flavor by The Traveling Masaldani Company.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <header>
-    <a href="/">
+    <a href="/" aria-label="Back to homepage">
       <img src="../assets/logo.svg" alt="The Traveling Masaldani Company" class="header-logo">
     </a>
   </header>
 
   <main>
+    <h1 class="page-title">The Nook Gala</h1>
+
     <!-- Tab navigation -->
     <nav class="tabs" role="tablist">
-      <button class="tab active" role="tab" aria-selected="true" data-tab="story" id="tab-story">Menu Development Story</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="dishes" id="tab-dishes">Dish By Dish</button>
+      <button class="tab active" role="tab" aria-selected="true" data-tab="story" id="tab-story">
+        <span class="tab-label">Menu Development Story</span>
+        <span class="tab-indicator"></span>
+      </button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="dishes" id="tab-dishes">
+        <span class="tab-label">Dish by Dish</span>
+        <span class="tab-indicator"></span>
+      </button>
     </nav>
 
     <!-- Menu Development Story -->
     <section class="tab-content active" id="panel-story" role="tabpanel" aria-labelledby="tab-story">
       <div class="story-text">
         <p>
-          Once the kind people at The Nook gave me the opportunity to provide food at the gala — I was unfortunately in the midst of several severe health problems, each one more unexpected than the last. In the month since being informed about catering the gala, I have had 2 surgeries and been on medication and drugs I never even knew existed. Experiencing this for the first time in my life and losing control over acts that had previously felt simple was incredibly difficult. In between all the anesthesia, one of the main thoughts that kept me going was my simple and unadulterated love for food. Moments where I experienced new flavors, added skills to my cooking toolbox and came home to experiment, kept me afloat during the low moments. The menu you will eat tonight was borne out of those moments that shaped the beginnings of my culinary passion and sustained my strength through the past few months. Each dish is a callback to a memory that allowed me to recover and come back to the world.
+          Once the kind people at The Nook gave me the opportunity to provide food at the gala — I was unfortunately in the midst of several severe health problems, each one more unexpected than the last. In the month since being informed about catering the gala, I have had 2 surgeries and been on medication and drugs I never even knew existed.
+        </p>
+        <p>
+          Experiencing this for the first time in my life and losing control over acts that had previously felt simple was incredibly difficult. In between all the anesthesia, one of the main thoughts that kept me going was my simple and unadulterated love for food.
+        </p>
+        <p>
+          Moments where I experienced new flavors, added skills to my cooking toolbox and came home to experiment, kept me afloat during the low moments. The menu you will eat tonight was borne out of those moments that shaped the beginnings of my culinary passion and sustained my strength through the past few months.
+        </p>
+        <p>
+          Each dish is a callback to a memory that allowed me to recover and come back to the world.
         </p>
       </div>
 
       <button class="next-section-arrow" aria-label="Go to Dish By Dish" id="go-to-dishes">
-        <span class="arrow-label">Dish By Dish</span>
+        <span class="arrow-label">Dish by Dish</span>
         <span class="arrow-icon">&#8595;</span>
       </button>
     </section>
@@ -93,7 +111,6 @@
   </footer>
 
   <script>
-    // Tab switching
     const tabs = document.querySelectorAll('.tab');
     const panels = document.querySelectorAll('.tab-content');
 
@@ -115,7 +132,6 @@
       tab.addEventListener('click', () => switchTab(tab.dataset.tab));
     });
 
-    // Arrow button to switch to Dish By Dish
     document.getElementById('go-to-dishes').addEventListener('click', () => {
       switchTab('dishes');
       window.scrollTo({ top: 0, behavior: 'smooth' });
