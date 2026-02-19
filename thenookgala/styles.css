@@ -37,8 +37,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 3rem 2rem;
-  max-width: 800px;
+  padding: 1rem 3rem 3rem;
+  max-width: 760px;
   margin: 0 auto;
   width: 100%;
 }
@@ -46,9 +46,8 @@ main {
 /* Tabs */
 .tabs {
   display: flex;
-  gap: 0;
-  margin-bottom: 3rem;
-  border-bottom: 1px solid #b0a48e;
+  gap: 4rem;
+  margin-bottom: 3.5rem;
   width: 100%;
   justify-content: center;
 }
@@ -57,18 +56,18 @@ main {
   background: none;
   border: none;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 400;
-  color: #8a7d6b;
-  padding: 0.8rem 2rem;
+  color: #a89c8a;
+  padding: 0.6rem 0;
   cursor: pointer;
   position: relative;
-  transition: color 0.3s ease;
-  letter-spacing: 0.02em;
+  transition: color 0.35s ease;
+  letter-spacing: 0.06em;
 }
 
 .tab:hover {
-  color: #3a3228;
+  color: #5a4e40;
 }
 
 .tab.active {
@@ -78,11 +77,11 @@ main {
 .tab.active::after {
   content: '';
   position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: #3a3228;
+  bottom: -4px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background-color: #2c241c;
 }
 
 /* Tab content panels */
@@ -99,11 +98,12 @@ main {
 .story-text {
   text-align: center;
   margin-bottom: 3rem;
+  padding: 0 1rem;
 }
 
 .story-text p {
   font-size: 1.05rem;
-  line-height: 1.85;
+  line-height: 2;
   color: #5a4e40;
 }
 
@@ -254,16 +254,24 @@ footer {
   }
 
   main {
-    padding: 0 1.5rem 1.5rem;
+    padding: 0.5rem 1.5rem 2rem;
   }
 
   .tabs {
-    margin-bottom: 2rem;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
   }
 
   .tab {
-    font-size: 1.05rem;
-    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+  }
+
+  .story-text {
+    padding: 0;
+  }
+
+  .story-text p {
+    font-size: 0.95rem;
   }
 
   .dish-name {
@@ -275,10 +283,6 @@ footer {
   }
 
   .dish-body p {
-    font-size: 0.95rem;
-  }
-
-  .story-text p {
     font-size: 0.95rem;
   }
 
