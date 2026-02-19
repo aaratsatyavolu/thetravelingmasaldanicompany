@@ -63,6 +63,47 @@ h1 {
   margin-bottom: 0;
 }
 
+/* Event link */
+.event-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+  padding: 0.6rem 0;
+  text-decoration: none;
+  color: #8a7d6b;
+  transition: color 0.3s ease;
+}
+
+.event-link:hover {
+  color: #2c241c;
+}
+
+.event-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.event-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.event-arrow {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.event-link:hover .event-arrow {
+  transform: translateX(3px);
+}
+
 /* Footer */
 footer {
   padding: 2.5rem 2rem 2rem;
